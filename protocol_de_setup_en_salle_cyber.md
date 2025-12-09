@@ -44,7 +44,10 @@ sh deploy.sh
 
 ## 3. Faire `Ctlr + Alt + T` pour ouvrir un terminal
 
-## 4. Activer **ssh** en faisant `sudo systemctl enable ssh && sudo systemctl start ssh`
+## 4. Activer **ssh** en faisant `sudo su` puis
+```bash
+systemctl enable ssh && systemctl start ssh
+```
 
 ## 5. S'assurer que le script  fonctionne en se connectant internet avec 2 pcs idéalement un à gauche et un à droite.
 
