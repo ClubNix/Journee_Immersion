@@ -72,6 +72,6 @@ wget https://raw.githubusercontent.com/ClubNix/Journee_Immersion/main/PDFs/Pense
 
 for pc in {1..36};
 do
-  sshpass -p "kali" scp -o ConnectTimeout=30 -o StrictHostKeyChecking=no ./Pense_bete-2.pdf kali@pc5004-"$pc":~/
+  sshpass -p "kali" scp -o ConnectTimeout=30 -o StrictHostKeyChecking=no ./Pense_bete-2.pdf kali@pc5004-"$pc":~/Documents
 done
 ```
