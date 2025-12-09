@@ -63,3 +63,15 @@ systemctl enable ssh && systemctl start ssh
 ## 7. S'assurer que les stickers en dessous des clavier sont présents
 ## >> Si ça n'est pas le cas prenez un papier et noté y le résultat de la commande `ip a` **Que vous taperez non pas sur le pc auquel est branché le clavier mais celui à coté**.
 
+## >> Protocol pour envoyer un fichier quelconque sur tous les pc (comme le fichier `Pense-bete-2.pdf`)
+
+```bash
+#!/bin/bash
+
+wget https://raw.githubusercontent.com/ClubNix/Journee_Immersion/main/PDFs/Pense_bete-2.pdf
+
+for pc in {1..36};
+do
+  sshpass -p "kali" scp -o ConnectTimeout=30 -o StrictHostKeyChecking=no ./Pense_bete-2.pdf kali@pc5004-"$pc":~/
+done
+```
