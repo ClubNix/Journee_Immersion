@@ -9,13 +9,16 @@
 **Les fichiers nécessaires sont : `boot.sh`, `deploy.sh` et `initscript`**
 ```bash
 # déplacer ces trois fichiers dans un endroit comme /root
+# Ou cloner le repos git
+git clone https://github.com/ClubNix/Journee_Immersion.git
+cd Journee_Immersion/immersion
 ls
-# boot.sh deploy.sh initscript
+# boot.sh deploy.sh initscript [Autres fichiers]
 chmod +x initscript
 # Test du script pour voir s'il fonctionne : 
 ./initscript
 # En cas d'erreurs dans la console, ne pas chercher plus loin et recompilé : notament si l'erreur fait allusion à une libc
-# sh deploy.sh
+sh deploy.sh
 ```
 
 #### Commandes (dans le cas ou l'on doit tous recompiler si un problème de version parvient): 
@@ -23,7 +26,9 @@ chmod +x initscript
 ```bash
 apt install -y cargo
 
-cd immersion/
+git clone https://github.com/ClubNix/Journee_Immersion.git
+cd Journee_Immersion/immersion
+
 cargo build
 # ./target/debug/project
 cp ./target/debug/project initscript
