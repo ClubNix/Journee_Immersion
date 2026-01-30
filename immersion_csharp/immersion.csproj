@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
     <RuntimeIdentifier>linux-x64</RuntimeIdentifier>
     <PublishAot>true</PublishAot>
+    <InvariantGlobalization>true</InvariantGlobalization>
   </PropertyGroup>
 
 </Project>
