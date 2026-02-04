@@ -194,7 +194,7 @@ def run_http_server_in_background(port):
     thread.daemon = True
     thread.start()
 
-def process_cyber_device(dev: CyberDevice):
+def process_cyber_device(device: CyberDevice):
     device.mask_dangerous()
     device.transfer_needed_files()
     if device.assert_immersion_running():
