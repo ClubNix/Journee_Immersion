@@ -136,6 +136,11 @@ class CyberDevice:
     def ssh_open(self):
         return ssh_open(self.hostname)
     
+    def rename(self):
+        if self._id.isdigit() and int(self._id) % 2 == 0:
+            self.execute("sudo hostname droite")
+        else:
+            self.execute("sudo hostname gauche")
     
     def setup(self):
         self.mask_dangerous()
@@ -143,6 +148,10 @@ class CyberDevice:
         if self._id.isdigit() and int(self._id) % 2 == 0:
             if not self.assert_immersion_running():
                 print(f"immersion not running in: {self.hostname}...")
+        self.rename()
+        self.clear_history()
+
+
         
 
 def http_server(port):
@@ -195,13 +204,7 @@ def run_http_server_in_background(port):
     thread.start()
 
 def process_cyber_device(device: CyberDevice):
-    device.mask_dangerous()
-    device.transfer_needed_files()
-    if device.assert_immersion_running():
-        print(f"  - Immersion is running on {device.hostname}.")
-    else:
-        print(f"  - Immersion is NOT running on {device.hostname}.")
-    device.clear_history()
+    device.setup()
 
 def main():
     port = 8589
