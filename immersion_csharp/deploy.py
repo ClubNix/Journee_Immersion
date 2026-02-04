@@ -194,6 +194,15 @@ def run_http_server_in_background(port):
     thread.daemon = True
     thread.start()
 
+def process_cyber_device(dev: CyberDevice):
+    device.mask_dangerous()
+    device.transfer_needed_files()
+    if device.assert_immersion_running():
+        print(f"  - Immersion is running on {device.hostname}.")
+    else:
+        print(f"  - Immersion is NOT running on {device.hostname}.")
+    device.clear_history()
+
 def main():
     port = 8589
     run_http_server_in_background(port)
@@ -201,7 +210,7 @@ def main():
     print(f"HTTP server is running at http://{ip}:{port}/")
     i = 0
     user = "user"
-
+    ths = []
     try:
         devices = getHostNames("pc5004-", "")
         devicesSessions = []
@@ -216,15 +225,12 @@ def main():
                 )
             )
             device = devicesSessions[i]
-
+            ths.append(Thread(target=process_cyber_device, args=(device,)))
+            ths[-1].start()
             print(f"[{i+1}/{len(devices)}] Processing device {device.hostname}...")
-            device.mask_dangerous()
-            device.transfer_needed_files()
-            if device.assert_immersion_running():
-                print(f"  - Immersion is running on {device.hostname}.")
-            else:
-                print(f"  - Immersion is NOT running on {device.hostname}.")
-            device.clear_history()
+        for th in ths:
+            th.join()
+
     except KeyboardInterrupt:
         print("Shutting down server.")
 
