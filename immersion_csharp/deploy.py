@@ -131,6 +131,10 @@ class CyberDevice:
         self.execute("echo \"alias shutdown='echo'\" >> ~/.bashrc")
         self.execute("echo \"alias poweroff='echo'\" >> ~/.bashrc")
 
+        self.execute("sudo echo \"alias reboot='echo'\" >> /root/.bashrc")
+        self.execute("sudo echo \"alias shutdown='echo'\" >> /root/.bashrc")
+        self.execute("sudo echo \"alias poweroff='echo'\" >> /root/.bashrc")
+
         self.clear_history()
 
     def ssh_open(self):
