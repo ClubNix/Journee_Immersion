@@ -200,18 +200,28 @@ def main():
     user = "user"
 
     try:
-
         devices = getHostNames("pc5004-", "")
+        devicesSessions = []
         print(devices)
+        for (i, name) in enumerate(devices):
+            devicesSessions.append(
+                    CyberDevice(
+                    hostname=name,
+                    username="user",
+                    password="live",
+                    http_server_url=f"http://{ip}:{port}"
+                )
+            )
+            device = devicesSessions[i]
 
-        """for i in range(len(devices)):
-            device = devices[i]
             print(f"[{i+1}/{len(devices)}] Processing device {device.hostname}...")
+            device.mask_dangerous()
             device.transfer_needed_files()
             if device.assert_immersion_running():
                 print(f"  - Immersion is running on {device.hostname}.")
             else:
-                print(f"  - Immersion is NOT running on {device.hostname}.")"""
+                print(f"  - Immersion is NOT running on {device.hostname}.")
+            device.clear_history()
     except KeyboardInterrupt:
         print("Shutting down server.")
 
