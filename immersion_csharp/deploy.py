@@ -114,7 +114,7 @@ class CyberDevice:
             return False
     
     def transfer_needed_files(self):
-        if self._id.isdigit() and int(self.self._id) % 2 == 0:
+        if self._id.isdigit() and int(self._id) % 2 == 0:
             self.transfer_file("immersion", immersion_path)
         else:
             self.transfer_file("bruteforce_incomplet.py", brute_force_py_path)
