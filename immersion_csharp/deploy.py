@@ -100,6 +100,9 @@ class CyberDevice:
         cmdE = f"echo {b64encode(command.encode()).decode()} | base64 -d | bash"
         return execute_ssh_command(self.hostname, self.username, self.password, cmdE)
     
+    def execute(self, command: str):
+        return self.execute_command(command)
+
     def transfer_file(self, filename: str, remote_path: str):
         self.execute_command(f"curl {self.http_server_url}/{urlencode(filename)} > {remote_path} && chmod +rx {remote_path}")
     
