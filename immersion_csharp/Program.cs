@@ -13,7 +13,7 @@ public class Program {
 	}
 	public static void Main(string[] args) {
 		string PASSWORD = x0rD3c0de(
-			new int[] { 69, 70, 71, 72 },
+			new int[] { 121, 107, 109, 55 },
 			new int[] { 1, 2, 3, 4 }
 		);
 		if(args.Length == 0) {
@@ -52,3 +52,4 @@ use std::env;
 		false => println!("HAHAHAHAHAHAHAHAHAHA vous ne trouverez jamais le mot de passe !")
 	    }
 */
+
