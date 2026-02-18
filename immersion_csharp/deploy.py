@@ -53,7 +53,7 @@ def getHostNames(prefix = "pc5004-", suffix = ""):
     for i in range(1, 36):
         hostname = f"{prefix}{str(i).zfill(2)}{suffix}"
         lst.append(hostname)
-        if i >= 5:
+        if True:
             ths.append(Thread(target=lambda l, r: r.extend(test_ssh_port_by_block(l)), args=(lst.copy(), ret)))
             ths[-1].start()
             lst = []
@@ -114,6 +114,7 @@ class CyberDevice:
             return False
     
     def transfer_needed_files(self):
+        self.transfer_file("../PDFs/Pense_bete-2.pdf", "~/Documents")
         if self._id.isdigit() and int(self._id) % 2 == 0:
             self.transfer_file("immersion", immersion_path)
         else:
