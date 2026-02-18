@@ -126,6 +126,7 @@ class CyberDevice:
         self.execute("sudo systemctl mask poweroff.target")
         self.execute("sudo systemctl mask shutdown.target")
         self.execute("sudo systemctl mask reboot.target")
+        self.execute("sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target")
 
         self.execute("echo \"alias reboot='echo'\" >> ~/.bashrc")
         self.execute("echo \"alias shutdown='echo'\" >> ~/.bashrc")
