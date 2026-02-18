@@ -38,6 +38,13 @@ apt install -y sshpass
 python3 ./deploy.py
 
 ```
+
+```bash
+# Si besoin de recompiler :
+# Dans Journee_Immersion/
+mkdir -p dotnet && cd dotnet && wget https://builds.dotnet.microsoft.com/dotnet/Sdk/8.0.418/dotnet-sdk-8.0.418-linux-x64.tar.gz && tar -xzf dotnet-sdk-8.0.418-linux-x64.tar.gz && cd ../immersion_csharp && ../dotnet/dotnet publish immersion.csproj && cp ./bin/Release/net8.0/linux-x64/publish/immersion . 
+```
+
 ## 5. S'assurer que le script fonctionne en se connectant internet avec 2 pcs idéalement un à gauche et un à droite.
 
 ## *A faire en parallèle Distribuer un sujet par pc*
